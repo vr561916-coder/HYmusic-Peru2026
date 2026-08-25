@@ -1,111 +1,110 @@
-<!DOCTYPE html> 
-<html lang="es"> 
- 
-<head> 
- 
-<meta charset="UTF-8"> 
-<meta name="viewport" content="width=device-width, initial-scale=1.0"> 
- 
-<title>HYmusic Peru2026 - Música online</title> 
- 
-<meta name="description" 
-content="HYmusic Peru2026 - Biblioteca de música online"> 
- 
-<style> 
- 
-* { 
-    box-sizing: border-box; 
-} 
- 
-body { 
-    margin: 0; 
-    background: #121212; 
-    color: white; 
-    font-family: Arial, sans-serif; 
-    padding-right: 330px; 
-} 
- 
-header { 
-    text-align: center; 
-    padding: 35px 20px 20px; 
-} 
- 
-header h1 { 
-    font-size: 42px; 
-    margin: 0 0 8px; 
-} 
- 
-header p { 
-    color: #999; 
-} 
- 
-.search { 
-    width: 90%; 
-    max-width: 650px; 
-    margin: 25px auto; 
-} 
- 
-.search input { 
-    width: 100%; 
-    padding: 16px 22px; 
-    border: none; 
-    border-radius: 30px; 
-    background: #242424; 
-    color: white; 
-    font-size: 16px; 
-    outline: none; 
-} 
- 
-.search input:focus { 
-    background: #303030; 
-} 
- 
-.vista { 
-    display: none; 
-} 
- 
-.vista.activa { 
-    display: block; 
-} 
- 
-.generos { 
-    max-width: 900px; 
-    margin: 30px auto; 
-    padding: 20px; 
-    display: grid; 
-    grid-template-columns: repeat(auto-fit, minmax(180px, 1fr)); 
-    gap: 20px; 
-} 
- 
-.genero { 
-    background: #202020; 
-    border-radius: 18px; 
-    padding: 35px 20px; 
-    text-align: center; 
-    cursor: pointer; 
-    transition: 0.2s; 
-} 
- 
-.genero:hover { 
-    background: #303030; 
-    transform: scale(1.03); 
-} 
- 
-.icono { 
-    font-size: 45px; 
-} 
- 
-.genero h2 { 
-    margin: 12px 0 5px; 
-} 
- 
-.genero p { 
-    color: #999; 
-} 
+<!DOCTYPE html>
+<html lang="es">
 
+<head>
+
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>HYmusic Peru2026 - Música online</title>
+
+<meta name="description"
+content="HYmusic Peru2026 - Biblioteca de música online">
+
+<style>
+
+* {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    background: #121212;
+    color: white;
+    font-family: Arial, sans-serif;
+    padding-right: 330px;
+}
+
+header {
+    text-align: center;
+    padding: 35px 20px 20px;
+}
+
+header h1 {
+    font-size: 42px;
+    margin: 0 0 8px;
+}
+
+header p {
+    color: #999;
+}
+
+.search {
+    width: 90%;
+    max-width: 650px;
+    margin: 25px auto;
+}
+
+.search input {
+    width: 100%;
+    padding: 16px 22px;
+    border: none;
+    border-radius: 30px;
+    background: #242424;
+    color: white;
+    font-size: 16px;
+    outline: none;
+}
+
+.search input:focus {
+    background: #303030;
+}
+
+.vista {
+    display: none;
+}
+
+.vista.activa {
+    display: block;
+}
+
+.generos {
+    max-width: 900px;
+    margin: 30px auto;
+    padding: 20px;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+    gap: 20px;
+}
+
+.genero {
+    background: #202020;
+    border-radius: 18px;
+    padding: 35px 20px;
+    text-align: center;
+    cursor: pointer;
+    transition: 0.2s;
+}
+
+.genero:hover {
+    background: #303030;
+    transform: scale(1.03);
+}
+
+.icono {
+    font-size: 45px;
+}
+
+.genero h2 {
+    margin: 12px 0 5px;
+}
+
+.genero p {
+    color: #999;
+}
 
 /* =====================================================
-   OH MACHIN - IMAGEN DE LA SECCION
+   OH MACHIN - IMAGEN
 ===================================================== */
 
 .genero-imagen {
@@ -129,384 +128,415 @@ header p {
     margin: 0;
 }
 
-
 /* =====================================================
    CONTENIDO
 ===================================================== */
- 
-.contenido { 
-    max-width: 850px; 
-    margin: auto; 
-    padding: 20px; 
-} 
- 
-.volver { 
-    background: #292929; 
-    color: white; 
-    border: none; 
-    padding: 12px 20px; 
-    border-radius: 25px; 
-    cursor: pointer; 
-    font-size: 15px; 
-    margin-bottom: 20px; 
-} 
- 
-.volver:hover { 
-    background: #3a3a3a; 
-} 
- 
-.lista { 
-    display: flex; 
-    flex-direction: column; 
-    gap: 8px; 
-} 
- 
-.cancion { 
-    background: #1f1f1f; 
-    padding: 15px 18px; 
-    border-radius: 10px; 
-    cursor: pointer; 
-    transition: 0.15s; 
-} 
- 
-.cancion:hover { 
-    background: #303030; 
-} 
- 
-.cancion.activa { 
-    background: #383838; 
-} 
- 
-.titulo { 
-    font-size: 16px; 
-    font-weight: bold; 
-} 
- 
-.artista { 
-    color: #999; 
-    font-size: 14px; 
-    margin-top: 5px; 
-} 
- 
-.genero-tag { 
-    display: inline-block; 
-    margin-top: 8px; 
-    font-size: 11px; 
-    background: #333; 
-    padding: 4px 8px; 
-    border-radius: 10px; 
-    color: #bbb; 
-} 
- 
-.vacio { 
-    text-align: center; 
-    color: #888; 
-    padding: 40px; 
-} 
- 
- 
+
+.contenido {
+    max-width: 850px;
+    margin: auto;
+    padding: 20px;
+}
+
+.volver {
+    background: #292929;
+    color: white;
+    border: none;
+    padding: 12px 20px;
+    border-radius: 25px;
+    cursor: pointer;
+    font-size: 15px;
+    margin-bottom: 20px;
+}
+
+.volver:hover {
+    background: #3a3a3a;
+}
+
+.lista {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+.cancion {
+    background: #1f1f1f;
+    padding: 15px 18px;
+    border-radius: 10px;
+    cursor: pointer;
+    transition: 0.15s;
+}
+
+.cancion:hover {
+    background: #303030;
+}
+
+.cancion.activa {
+    background: #383838;
+}
+
+.titulo {
+    font-size: 16px;
+    font-weight: bold;
+}
+
+.artista {
+    color: #999;
+    font-size: 14px;
+    margin-top: 5px;
+}
+
+.genero-tag {
+    display: inline-block;
+    margin-top: 8px;
+    font-size: 11px;
+    background: #333;
+    padding: 4px 8px;
+    border-radius: 10px;
+    color: #bbb;
+}
+
+.vacio {
+    text-align: center;
+    color: #888;
+    padding: 40px;
+}
+
 /* =====================================================
    REPRODUCTOR LATERAL
 ===================================================== */
- 
-#reproductor { 
-    position: fixed; 
-    top: 0; 
-    right: 0; 
-    width: 310px; 
-    height: 100vh; 
-    background: #181818; 
-    border-left: 1px solid #333; 
-    z-index: 99999; 
-    padding: 25px 20px; 
-    display: flex; 
-    flex-direction: column; 
-    justify-content: flex-end; 
-} 
- 
-#infoCancion { 
-    margin-bottom: 15px; 
-    text-align: left; 
-} 
- 
-.cover { 
-    width: 100%; 
-    height: 220px; 
-    background: linear-gradient(135deg, #333, #111); 
-    border-radius: 12px; 
-    display: flex; 
-    align-items: center; 
-    justify-content: center; 
-    font-size: 70px; 
-    margin-bottom: 20px; 
-} 
- 
-.nombre { 
-    display: block; 
-    font-size: 18px; 
-    font-weight: bold; 
-    margin-bottom: 7px; 
-} 
- 
-.artistaActual { 
-    display: block; 
-    color: #999; 
-    font-size: 14px; 
-} 
- 
-#audio { 
-    width: 100%; 
-} 
- 
-.estado { 
-    color: #777; 
-    font-size: 12px; 
-    margin-top: 12px; 
-    text-align: center; 
-} 
- 
-@media(max-width:900px) { 
- 
-    body { 
-        padding-right: 0; 
-        padding-bottom: 170px; 
-    } 
- 
-    #reproductor { 
-        top: auto; 
-        bottom: 0; 
-        left: 0; 
-        right: 0; 
-        width: 100%; 
-        height: auto; 
-        border-left: none; 
-        border-top: 1px solid #333; 
-        padding: 12px 15px; 
-    } 
- 
-    .cover { 
-        display: none; 
-    } 
- 
-    #infoCancion { 
-        margin-bottom: 8px; 
-    } 
- 
-} 
- 
-@media(max-width:600px) { 
- 
-    header h1 { 
-        font-size: 32px; 
-    } 
- 
-    .generos { 
-        grid-template-columns: 1fr 1fr; 
-    } 
- 
-    .genero { 
-        padding: 25px 10px; 
-    } 
- 
-} 
- 
-</style> 
- 
-</head> 
- 
-<body> 
- 
-<header> 
- 
-    <h1>🎵 HYmusic Peru2026</h1> 
- 
-    <p>Tu biblioteca de música</p> 
- 
-    <div class="search"> 
- 
-        <input 
-            type="text" 
-            id="buscador" 
-            placeholder="🔎 Buscar canción o artista..." 
-            autocomplete="off" 
-        > 
- 
-    </div> 
- 
-</header> 
+
+#reproductor {
+    position: fixed;
+    top: 0;
+    right: 0;
+    width: 310px;
+    height: 100vh;
+    background: #181818;
+    border-left: 1px solid #333;
+    z-index: 99999;
+    padding: 25px 20px;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+}
+
+#infoCancion {
+    margin-bottom: 15px;
+    text-align: left;
+}
+
+.cover {
+    width: 100%;
+    height: 220px;
+    background: linear-gradient(135deg, #333, #111);
+    border-radius: 12px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 70px;
+    margin-bottom: 20px;
+}
+
+.nombre {
+    display: block;
+    font-size: 18px;
+    font-weight: bold;
+    margin-bottom: 7px;
+}
+
+.artistaActual {
+    display: block;
+    color: #999;
+    font-size: 14px;
+}
+
+#audio {
+    width: 100%;
+}
+
+.estado {
+    color: #777;
+    font-size: 12px;
+    margin-top: 12px;
+    text-align: center;
+}
+
+/* =====================================================
+   MOVIL
+===================================================== */
+
+@media(max-width:900px) {
+
+    body {
+        padding-right: 0;
+        padding-bottom: 170px;
+    }
+
+    #reproductor {
+        top: auto;
+        bottom: 0;
+        left: 0;
+        right: 0;
+        width: 100%;
+        height: auto;
+        border-left: none;
+        border-top: 1px solid #333;
+        padding: 12px 15px;
+    }
+
+    .cover {
+        display: none;
+    }
+
+    #infoCancion {
+        margin-bottom: 8px;
+    }
+}
+
+@media(max-width:600px) {
+
+    header h1 {
+        font-size: 32px;
+    }
+
+    .generos {
+        grid-template-columns: 1fr 1fr;
+    }
+
+    .genero {
+        padding: 25px 10px;
+    }
+}
+
+</style>
+
+</head>
+
+<body>
+
+<header>
+
+    <h1>🎵 HYmusic Peru2026</h1>
+
+    <p>Tu biblioteca de música</p>
+
+    <div class="search">
+
+        <input
+            type="text"
+            id="buscador"
+            placeholder="🔎 Buscar canción o artista..."
+            autocomplete="off"
+        >
+
+    </div>
+
+</header>
 
 
 <!-- =====================================================
      MENU PRINCIPAL
 ===================================================== -->
- 
-<section id="inicio" class="vista activa"> 
- 
-    <div class="generos"> 
- 
-        <div class="genero" onclick="abrirGenero('POP')"> 
- 
-            <div class="icono">🎤</div> 
- 
-            <h2>POP</h2> 
- 
-            <p>Música pop</p> 
- 
-        </div> 
- 
- 
-        <div class="genero" onclick="abrirGenero('ROCK')"> 
- 
-            <div class="icono">🎸</div> 
- 
-            <h2>ROCK</h2> 
- 
-            <p>Rock</p> 
- 
-        </div> 
- 
- 
-        <div class="genero" onclick="abrirGenero('CUMBIA')"> 
- 
-            <div class="icono">💃</div> 
- 
-            <h2>CUMBIA</h2> 
- 
-            <p>Cumbia</p> 
- 
-        </div> 
- 
- 
-        <div class="genero" onclick="abrirGenero('REGGAETON')"> 
- 
-            <div class="icono">🔥</div> 
- 
-            <h2>REGGAETON</h2> 
- 
-            <p>Reggaetón</p> 
- 
+
+<section id="inicio" class="vista activa">
+
+    <div class="generos">
+
+        <!-- POP -->
+
+        <div
+            class="genero"
+            onclick="abrirGenero('POP')"
+        >
+
+            <div class="icono">🎤</div>
+
+            <h2>POP</h2>
+
+            <p>Música pop</p>
+
         </div>
 
 
-        <!-- =================================================
-             NUEVA SECCION OH MACHIN
-        ================================================= -->
- 
-        <div 
-            class="genero genero-imagen" 
+        <!-- ROCK -->
+
+        <div
+            class="genero"
+            onclick="abrirGenero('ROCK')"
+        >
+
+            <div class="icono">🎸</div>
+
+            <h2>ROCK</h2>
+
+            <p>Rock</p>
+
+        </div>
+
+
+        <!-- CUMBIA -->
+
+        <div
+            class="genero"
+            onclick="abrirGenero('CUMBIA')"
+        >
+
+            <div class="icono">💃</div>
+
+            <h2>CUMBIA</h2>
+
+            <p>Cumbia</p>
+
+        </div>
+
+
+        <!-- REGGAETON -->
+
+        <div
+            class="genero"
+            onclick="abrirGenero('REGGAETON')"
+        >
+
+            <div class="icono">🔥</div>
+
+            <h2>REGGAETON</h2>
+
+            <p>Reggaetón</p>
+
+        </div>
+
+
+        <!-- OH MACHIN -->
+
+        <div
+            class="genero genero-imagen"
             onclick="abrirGenero('OH MACHIN')"
-        > 
- 
-            <img 
-                src="oh-machin.jfif" 
+        >
+
+            <img
+                src="oh-machin.jfif"
                 alt="OH MACHIN"
-            > 
- 
-            <h2>OH MACHIN</h2> 
- 
-            <p>OH MACHIN</p> 
- 
+            >
+
+            <h2>OH MACHIN</h2>
+
+            <p>OH MACHIN</p>
+
         </div>
- 
-    </div> 
- 
-</section> 
+
+    </div>
+
+</section>
 
 
 <!-- =====================================================
      BIBLIOTECA
 ===================================================== -->
- 
-<section id="biblioteca" class="vista"> 
- 
-    <div class="contenido"> 
- 
-        <button class="volver" onclick="volverInicio()"> 
- 
-            ← Volver 
- 
-        </button> 
- 
-        <h2 id="tituloGenero"></h2> 
- 
-        <div id="listaCanciones" class="lista"></div> 
- 
-    </div> 
- 
-</section> 
+
+<section id="biblioteca" class="vista">
+
+    <div class="contenido">
+
+        <button
+            class="volver"
+            onclick="volverInicio()"
+        >
+
+            ← Volver
+
+        </button>
+
+        <h2 id="tituloGenero"></h2>
+
+        <div
+            id="listaCanciones"
+            class="lista"
+        ></div>
+
+    </div>
+
+</section>
 
 
 <!-- =====================================================
      RESULTADOS DE BUSQUEDA
 ===================================================== -->
- 
-<section id="busqueda" class="vista"> 
- 
-    <div class="contenido"> 
- 
-        <button class="volver" onclick="volverInicio()"> 
- 
-            ← Volver 
- 
-        </button> 
- 
-        <h2>🔎 Resultados de búsqueda</h2> 
- 
-        <div id="listaBusqueda" class="lista"></div> 
- 
-    </div> 
- 
-</section> 
+
+<section id="busqueda" class="vista">
+
+    <div class="contenido">
+
+        <button
+            class="volver"
+            onclick="volverInicio()"
+        >
+
+            ← Volver
+
+        </button>
+
+        <h2>🔎 Resultados de búsqueda</h2>
+
+        <div
+            id="listaBusqueda"
+            class="lista"
+        ></div>
+
+    </div>
+
+</section>
 
 
 <!-- =====================================================
      REPRODUCTOR PERMANENTE
 ===================================================== -->
- 
-<aside id="reproductor"> 
- 
-    <div class="cover"> 
- 
-        🎵 
- 
-    </div> 
- 
-    <div id="infoCancion"> 
- 
-        <span class="nombre"> 
- 
-            Ninguna canción seleccionada 
- 
-        </span> 
- 
-        <span class="artistaActual"> 
- 
-            Selecciona una canción 
- 
-        </span> 
- 
-    </div> 
- 
-    <audio id="audio" controls></audio> 
- 
-    <div class="estado"> 
- 
-        HYmusic Peru2026 
- 
-    </div> 
- 
-</aside> 
+
+<aside id="reproductor">
+
+    <div class="cover">
+
+        🎵
+
+    </div>
+
+    <div id="infoCancion">
+
+        <span class="nombre">
+
+            Ninguna canción seleccionada
+
+        </span>
+
+        <span class="artistaActual">
+
+            Selecciona una canción
+
+        </span>
+
+    </div>
+
+    <audio
+        id="audio"
+        controls
+    ></audio>
+
+    <div class="estado">
+
+        HYmusic Peru2026
+
+    </div>
+
+</aside>
 
 
-<script> 
-
+<script>
 
 /* =====================================================
    LISTA DE CANCIONES
 ===================================================== */
 
 const canciones = [
-
 
     /* ================= CUMBIA ================= */
 
@@ -595,161 +625,164 @@ const canciones = [
 
     /* ================= OH MACHIN ================= */
 
-    /* 
-       AGREGA AQUI LOS NOMBRES EXACTOS DE TUS CANCIONES
-       QUE TENGAN (OH MACHIN)
-    */
+    "xd-KingNasir(OH MACHIN).mp3"
 
-    // "Cancion-Artista(OH MACHIN).mp3",
-    // "Cancion2-Artista(OH MACHIN).mp3",
-
-
-]; 
+];
 
 
 /* =====================================================
    CANCION ACTUAL
 ===================================================== */
 
-let cancionActual = null; 
+let cancionActual = null;
 
 
 /* =====================================================
    OBTENER GENERO
 ===================================================== */
 
-function obtenerGenero(archivo) { 
+function obtenerGenero(archivo) {
 
-    const resultado = archivo.match(/\((.*?)\)/); 
+    const resultado =
+        archivo.match(/\((.*?)\)/);
 
-    if (resultado) { 
+    if (resultado) {
 
-        return resultado[1].toUpperCase(); 
+        return resultado[1].toUpperCase();
 
-    } 
+    }
 
-    return "OTROS"; 
+    return "OTROS";
 
-} 
+}
 
 
 /* =====================================================
    OBTENER DATOS
 ===================================================== */
 
-function obtenerDatos(archivo) { 
+function obtenerDatos(archivo) {
 
-    let limpio = archivo.replace(".mp3", ""); 
+    let limpio =
+        archivo.replace(".mp3", "");
 
-    const genero = obtenerGenero(archivo); 
+    const genero =
+        obtenerGenero(archivo);
 
-    limpio = limpio.replace(/\(.*?\)/, ""); 
+    limpio =
+        limpio.replace(/\(.*?\)/, "");
 
-    const partes = limpio.split("-"); 
+    const partes =
+        limpio.split("-");
 
-    const titulo = partes[0] || limpio; 
+    const titulo =
+        partes[0] || limpio;
 
-    const artista = 
-        partes.slice(1).join("-") || 
-        "Artista desconocido"; 
+    const artista =
+        partes.slice(1).join("-")
+        || "Artista desconocido";
 
-    return { 
+    return {
 
-        titulo: formatearTexto(titulo), 
+        titulo:
+            formatearTexto(titulo),
 
-        artista: formatearTexto(artista), 
+        artista:
+            formatearTexto(artista),
 
-        genero: genero 
+        genero:
+            genero
 
-    }; 
+    };
 
-} 
+}
 
 
 /* =====================================================
    FORMATEAR TEXTO
 ===================================================== */
 
-function formatearTexto(texto) { 
+function formatearTexto(texto) {
 
-    return texto 
+    return texto
 
         .replace(
-            /([a-z])([A-Z])/g, 
+            /([a-z])([A-Z])/g,
             "$1 $2"
-        ) 
+        )
 
-        .replace(/_/g, " ") 
+        .replace(/_/g, " ")
 
-        .replace(/-/g, " ") 
+        .replace(/-/g, " ")
 
-        .trim(); 
+        .trim();
 
-} 
+}
 
 
 /* =====================================================
    ABRIR GENERO
 ===================================================== */
 
-function abrirGenero(genero) { 
+function abrirGenero(genero) {
 
-    document 
-        .getElementById("inicio") 
-        .classList.remove("activa"); 
+    document
+        .getElementById("inicio")
+        .classList.remove("activa");
 
-    document 
-        .getElementById("busqueda") 
-        .classList.remove("activa"); 
+    document
+        .getElementById("busqueda")
+        .classList.remove("activa");
 
-    document 
-        .getElementById("biblioteca") 
-        .classList.add("activa"); 
+    document
+        .getElementById("biblioteca")
+        .classList.add("activa");
 
-    document 
-        .getElementById("tituloGenero") 
-        .textContent = 
-            obtenerIcono(genero) + 
-            " " + 
-            genero; 
+    document
+        .getElementById("tituloGenero")
+        .textContent =
+            obtenerIcono(genero)
+            + " "
+            + genero;
 
-    const resultados = canciones.filter( 
-        cancion => 
-        obtenerGenero(cancion) === genero 
-    ); 
+    const resultados =
+        canciones.filter(
+            cancion =>
+            obtenerGenero(cancion) === genero
+        );
 
-    mostrarCanciones( 
-        resultados, 
-        "listaCanciones" 
-    ); 
+    mostrarCanciones(
+        resultados,
+        "listaCanciones"
+    );
 
-} 
+}
 
 
 /* =====================================================
    ICONO GENERO
 ===================================================== */
 
-function obtenerIcono(genero) { 
+function obtenerIcono(genero) {
 
-    if (genero === "POP") 
-        return "🎤"; 
+    if (genero === "POP")
+        return "🎤";
 
-    if (genero === "ROCK") 
-        return "🎸"; 
+    if (genero === "ROCK")
+        return "🎸";
 
-    if (genero === "CUMBIA") 
-        return "💃"; 
+    if (genero === "CUMBIA")
+        return "💃";
 
-    if (genero === "REGGAETON") 
-        return "🔥"; 
+    if (genero === "REGGAETON")
+        return "🔥";
 
-    if (genero === "OH MACHIN") 
-        return "🎵"; 
+    if (genero === "OH MACHIN")
+        return "🎵";
 
-    return "🎵"; 
+    return "🎵";
 
-} 
+}
 
 
 /* =====================================================
@@ -757,271 +790,362 @@ function obtenerIcono(genero) {
 ===================================================== */
 
 function mostrarCanciones(
-    lista, 
+    lista,
     contenedor
-) { 
+) {
 
-    const elemento = 
-        document.getElementById(contenedor); 
+    const elemento =
+        document.getElementById(contenedor);
 
-    elemento.innerHTML = ""; 
+    elemento.innerHTML = "";
 
-    if (lista.length === 0) { 
+    if (lista.length === 0) {
 
-        elemento.innerHTML = 
-            '<div class="vacio">' + 
-            'No se encontraron canciones.' + 
-            '</div>'; 
+        elemento.innerHTML =
+            '<div class="vacio">' +
+            'No se encontraron canciones.' +
+            '</div>';
 
-        return; 
+        return;
 
-    } 
+    }
 
-    lista.forEach(archivo => { 
+    lista.forEach(archivo => {
 
-        const datos = obtenerDatos(archivo); 
+        const datos =
+            obtenerDatos(archivo);
 
-        const div = 
-            document.createElement("div"); 
+        const div =
+            document.createElement("div");
 
-        div.className = "cancion"; 
+        div.className =
+            "cancion";
 
-        if (cancionActual === archivo) { 
+        if (
+            cancionActual === archivo
+        ) {
 
-            div.classList.add("activa"); 
+            div.classList.add(
+                "activa"
+            );
 
-        } 
+        }
 
-        div.innerHTML = ` 
+        div.innerHTML = `
 
-            <div class="titulo"> 
+            <div class="titulo">
 
-                🎵 ${datos.titulo} 
+                🎵 ${datos.titulo}
 
-            </div> 
+            </div>
 
-            <div class="artista"> 
+            <div class="artista">
 
-                ${datos.artista} 
+                ${datos.artista}
 
-            </div> 
+            </div>
 
-            <span class="genero-tag"> 
+            <span class="genero-tag">
 
-                ${datos.genero} 
+                ${datos.genero}
 
-            </span> 
+            </span>
 
-        `; 
+        `;
 
-        div.onclick = function() { 
+        div.onclick = function() {
 
-            reproducir(archivo); 
+            reproducir(archivo);
 
-            document 
-                .querySelectorAll(".cancion") 
-                .forEach(x => 
-                    x.classList.remove("activa") 
-                ); 
+            document
+                .querySelectorAll(
+                    ".cancion"
+                )
+                .forEach(x =>
+                    x.classList.remove(
+                        "activa"
+                    )
+                );
 
-            div.classList.add("activa"); 
+            div.classList.add(
+                "activa"
+            );
 
-        }; 
+        };
 
-        elemento.appendChild(div); 
+        elemento.appendChild(div);
 
-    }); 
+    });
 
-} 
+}
 
 
 /* =====================================================
    REPRODUCIR
 ===================================================== */
 
-function reproducir(archivo) { 
+function reproducir(archivo) {
 
-    const audio = 
-        document.getElementById("audio"); 
+    const audio =
+        document.getElementById("audio");
 
-    if (cancionActual === archivo) { 
+    if (
+        cancionActual === archivo
+    ) {
 
-        if (audio.paused) { 
+        if (audio.paused) {
 
-            audio.play(); 
+            audio.play();
 
-        } 
+        }
 
-        return; 
+        return;
 
-    } 
+    }
 
-    cancionActual = archivo; 
+    cancionActual =
+        archivo;
 
-    audio.src = encodeURI(archivo); 
+    audio.src =
+        encodeURI(archivo);
 
-    audio.play(); 
+    audio.play();
 
-    actualizarInfo(archivo); 
+    actualizarInfo(
+        archivo
+    );
 
-} 
+}
 
 
 /* =====================================================
    ACTUALIZAR INFORMACION
 ===================================================== */
 
-function actualizarInfo(archivo) { 
+function actualizarInfo(
+    archivo
+) {
 
-    const datos = obtenerDatos(archivo); 
+    const datos =
+        obtenerDatos(archivo);
 
-    document 
-        .getElementById("infoCancion") 
-        .innerHTML = ` 
+    document
+        .getElementById(
+            "infoCancion"
+        )
+        .innerHTML = `
 
-            <div class="cover"> 
+            <div class="cover">
 
-                🎵 
+                🎵
 
-            </div> 
+            </div>
 
-            <span class="nombre"> 
+            <span class="nombre">
 
-                ${datos.titulo} 
+                ${datos.titulo}
 
-            </span> 
+            </span>
 
-            <span class="artistaActual"> 
+            <span class="artistaActual">
 
-                ${datos.artista} 
+                ${datos.artista}
 
-            </span> 
+            </span>
 
-        `; 
+        `;
 
-} 
+}
 
 
 /* =====================================================
    VOLVER AL MENU
 ===================================================== */
 
-function volverInicio() { 
+function volverInicio() {
 
-    document 
-        .getElementById("biblioteca") 
-        .classList.remove("activa"); 
+    document
+        .getElementById(
+            "biblioteca"
+        )
+        .classList.remove(
+            "activa"
+        );
 
-    document 
-        .getElementById("busqueda") 
-        .classList.remove("activa"); 
+    document
+        .getElementById(
+            "busqueda"
+        )
+        .classList.remove(
+            "activa"
+        );
 
-    document 
-        .getElementById("inicio") 
-        .classList.add("activa"); 
+    document
+        .getElementById(
+            "inicio"
+        )
+        .classList.add(
+            "activa"
+        );
 
-} 
+}
 
 
 /* =====================================================
    BUSCADOR
 ===================================================== */
 
-const buscador = 
-    document.getElementById("buscador"); 
+const buscador =
+    document.getElementById(
+        "buscador"
+    );
 
 
 buscador.addEventListener(
-    "input", 
-    function() { 
+    "input",
+    function() {
 
-        const texto = 
-            buscador.value 
-                .toLowerCase() 
-                .normalize("NFD") 
+        const texto =
+            buscador.value
+
+                .toLowerCase()
+
+                .normalize("NFD")
+
                 .replace(
-                    /[\u0300-\u036f]/g, 
+                    /[\u0300-\u036f]/g,
                     ""
-                ) 
-                .replace(/\s+/g, ""); 
+                )
 
+                .replace(
+                    /\s+/g,
+                    ""
+                );
 
-        if (texto === "") { 
+        if (texto === "") {
 
-            document 
-                .getElementById("busqueda") 
-                .classList.remove("activa"); 
+            document
+                .getElementById(
+                    "busqueda"
+                )
+                .classList.remove(
+                    "activa"
+                );
 
-            document 
-                .getElementById("biblioteca") 
-                .classList.remove("activa"); 
+            document
+                .getElementById(
+                    "biblioteca"
+                )
+                .classList.remove(
+                    "activa"
+                );
 
-            document 
-                .getElementById("inicio") 
-                .classList.add("activa"); 
+            document
+                .getElementById(
+                    "inicio"
+                )
+                .classList.add(
+                    "activa"
+                );
 
-            return; 
+            return;
 
-        } 
+        }
 
+        document
+            .getElementById(
+                "inicio"
+            )
+            .classList.remove(
+                "activa"
+            );
 
-        document 
-            .getElementById("inicio") 
-            .classList.remove("activa"); 
+        document
+            .getElementById(
+                "biblioteca"
+            )
+            .classList.remove(
+                "activa"
+            );
 
-        document 
-            .getElementById("biblioteca") 
-            .classList.remove("activa"); 
+        document
+            .getElementById(
+                "busqueda"
+            )
+            .classList.add(
+                "activa"
+            );
 
-        document 
-            .getElementById("busqueda") 
-            .classList.add("activa"); 
+        const resultados =
+            canciones.filter(
+                archivo => {
 
+                    const datos =
+                        obtenerDatos(
+                            archivo
+                        );
 
-        const resultados = 
-            canciones.filter(archivo => { 
+                    const titulo =
+                        datos.titulo
 
-                const datos = 
-                    obtenerDatos(archivo); 
+                            .toLowerCase()
 
-                const titulo = 
-                    datos.titulo 
-                        .toLowerCase() 
-                        .normalize("NFD") 
-                        .replace(
-                            /[\u0300-\u036f]/g, 
-                            ""
-                        ) 
-                        .replace(/\s+/g, ""); 
+                            .normalize("NFD")
 
-                const artista = 
-                    datos.artista 
-                        .toLowerCase() 
-                        .normalize("NFD") 
-                        .replace(
-                            /[\u0300-\u036f]/g, 
-                            ""
-                        ) 
-                        .replace(/\s+/g, ""); 
+                            .replace(
+                                /[\u0300-\u036f]/g,
+                                ""
+                            )
 
-                return ( 
-                    titulo.includes(texto) || 
-                    artista.includes(texto) 
-                ); 
+                            .replace(
+                                /\s+/g,
+                                ""
+                            );
 
-            }); 
+                    const artista =
+                        datos.artista
 
+                            .toLowerCase()
 
-        mostrarCanciones( 
-            resultados, 
-            "listaBusqueda" 
-        ); 
+                            .normalize("NFD")
+
+                            .replace(
+                                /[\u0300-\u036f]/g,
+                                ""
+                            )
+
+                            .replace(
+                                /\s+/g,
+                                ""
+                            );
+
+                    return (
+
+                        titulo.includes(
+                            texto
+                        )
+
+                        ||
+
+                        artista.includes(
+                            texto
+                        )
+
+                    );
+
+                }
+            );
+
+        mostrarCanciones(
+            resultados,
+            "listaBusqueda"
+        );
 
     }
-); 
+);
 
-</script> 
+</script>
 
-</body> 
+</body>
 
 </html>
