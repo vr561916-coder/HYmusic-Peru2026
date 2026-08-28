@@ -1,3 +1,4 @@
+```html
 <!DOCTYPE html>
 <html lang="es">
 
@@ -407,6 +408,22 @@ header p {
         </div>
 
 
+        <!-- SALSA -->
+
+        <div
+            class="genero"
+            onclick="abrirGenero('SALSA')"
+        >
+
+            <div class="icono">🕺</div>
+
+            <h2>SALSA</h2>
+
+            <p>Salsa</p>
+
+        </div>
+
+
         <!-- OH MACHIN -->
 
         <div
@@ -591,6 +608,20 @@ const canciones = [
     "WeWillRockYou-Queen(ROCK).mp3",
     "WelcomeToTheJungle-GunsNRoses(ROCK).mp3",
 
+    "One-Metallica(ROCK).mp3",
+    "The Unforgiven-Metallica(ROCK).mp3",
+    "Master of Puppets-Metallica(ROCK).mp3",
+    "Nothing Else Matters-Metallica(ROCK).mp3",
+    "Knockin' On Heaven's Door-Guns N' Roses(ROCK).mp3",
+    "November Rain-Guns N' Roses(ROCK).mp3",
+    "Paradise City-Guns N' Roses(ROCK).mp3",
+
+    "TNT-ACDC(ROCK).mp3",
+    "You Shook Me All Night Long-ACDC(ROCK).mp3",
+    "Thunderstruck-ACDC(ROCK).mp3",
+    "Highway to Hell-ACDC(ROCK).mp3",
+    "Back In Black-ACDC(ROCK).mp3",
+
 
     /* ================= REGGAETON ================= */
 
@@ -622,6 +653,73 @@ const canciones = [
     "Weltita-BADBUNNY(REGGAETON).mp3",
     "YaNoTeEspero-Ozuna(REGGAETON).mp3",
 
+    "Hola Bebé-Héctor El Father(REGGAETON).mp3",
+    "Maldades-Héctor El Father(REGGAETON).mp3",
+    "Tu Quieres Duro-Héctor El Father(REGGAETON).mp3",
+    "Noche De Travesura-Héctor El Father(REGGAETON).mp3",
+    "Sola-Héctor El Father(REGGAETON).mp3",
+
+    "Sacala-Héctor & Tito(REGGAETON).mp3",
+    "Gata Salvaje-Héctor & Tito(REGGAETON).mp3",
+    "Amor de Colegio-Héctor & Tito(REGGAETON).mp3",
+    "Felina-Héctor & Tito(REGGAETON).mp3",
+    "Baila Morena-Héctor & Tito(REGGAETON).mp3",
+
+    "Por Que Te Demoras-Plan B(REGGAETON).mp3",
+    "Guatauba-Plan B(REGGAETON).mp3",
+    "Frikitona-Plan B(REGGAETON).mp3",
+    "Es Un Secreto-Plan B(REGGAETON).mp3",
+    "Si No Le Contesto-Plan B(REGGAETON).mp3",
+
+    "Fantasma-Zion & Lennox(REGGAETON).mp3",
+    "Hay Algo En Ti-Zion & Lennox(REGGAETON).mp3",
+    "Bandida-Zion & Lennox(REGGAETON).mp3",
+    "Doncella-Zion & Lennox(REGGAETON).mp3",
+    "Yo Voy-Zion & Lennox(REGGAETON).mp3",
+
+    "Al Natural-Tego Calderón(REGGAETON).mp3",
+    "Punto y Aparte-Tego Calderón(REGGAETON).mp3",
+    "Guasa Guasa-Tego Calderón(REGGAETON).mp3",
+    "Metele Sazon-Tego Calderón(REGGAETON).mp3",
+    "Pa' Que Retozen-Tego Calderón(REGGAETON).mp3",
+
+    "Llame pa Verte-Wisin & Yandel(REGGAETON).mp3",
+    "Sexy Movimiento-Wisin & Yandel(REGGAETON).mp3",
+    "Pam Pam-Wisin & Yandel(REGGAETON).mp3",
+    "Noche De Entierro-Wisin & Yandel(REGGAETON).mp3",
+    "Rakata-Wisin & Yandel(REGGAETON).mp3",
+
+    "Aunque Te Fuiste-Don Omar(REGGAETON).mp3",
+    "Salio El Sol-Don Omar(REGGAETON).mp3",
+    "Pobre Diabla-Don Omar(REGGAETON).mp3",
+    "Dile-Don Omar(REGGAETON).mp3",
+    "Dale Don Dale-Don Omar(REGGAETON).mp3",
+
+    "Ella Me Levantó-Daddy Yankee(REGGAETON).mp3",
+    "Tu Principe-Daddy Yankee(REGGAETON).mp3",
+    "Rompe-Daddy Yankee(REGGAETON).mp3",
+    "Lo que Pasó Pasó-DADY YANKEE(REGGAETON).mp3",
+
+
+    /* ================= SALSA ================= */
+
+    "Tu sufrirás-Wilson Manyoma(SALSA).mp3",
+    "Los Charcos-Wilson Manyoma(SALSA).mp3",
+    "El Patillero-Wilson Manyoma(SALSA).mp3",
+    "El Preso-Wilson Manyoma(SALSA).mp3",
+
+    "Che Che Cole-Willie Colón(SALSA).mp3",
+    "Talento De Televisión-Willie Colón(SALSA).mp3",
+    "El Gran Varon-Willie Colón(SALSA).mp3",
+    "Gitana-Willie Colón(SALSA).mp3",
+    "Idilio-Willie Colón(SALSA).mp3",
+
+    "Juanito Alimaña-Hector Lavoe(SALSA).mp3",
+    "Aguanile-Hector Lavoe(SALSA).mp3",
+    "Mi Gente-Hector Lavoe(SALSA).mp3",
+    "Periódico de Ayer-Hector Lavoe(SALSA).mp3",
+    "El Cantante-Hector Lavoe(SALSA).mp3",
+
 
     /* ================= OH MACHIN ================= */
 
@@ -638,7 +736,7 @@ let cancionActual = null;
 
 
 /* =====================================================
-   OBTENER GENERO
+   OBTENER GENERO DESDE EL TAG
 ===================================================== */
 
 function obtenerGenero(archivo) {
@@ -776,6 +874,9 @@ function obtenerIcono(genero) {
 
     if (genero === "REGGAETON")
         return "🔥";
+
+    if (genero === "SALSA")
+        return "🕺";
 
     if (genero === "OH MACHIN")
         return "🎵";
@@ -1149,3 +1250,4 @@ buscador.addEventListener(
 </body>
 
 </html>
+```
