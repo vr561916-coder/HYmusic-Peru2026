@@ -69,12 +69,24 @@ header p {
     display: block;
 }
 
-.generos {
-    max-width: 900px;
+
+/* =====================================================
+   MENU PRINCIPAL
+===================================================== */
+
+.menu-principal {
+    max-width: 1100px;
     margin: 30px auto;
     padding: 20px;
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+    grid-template-columns: minmax(0, 1fr) 300px;
+    gap: 25px;
+    align-items: start;
+}
+
+.generos {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(180px, 1fr));
     gap: 20px;
 }
 
@@ -104,6 +116,38 @@ header p {
     color: #999;
 }
 
+
+/* =====================================================
+   ACTUALIZACION
+===================================================== */
+
+.actualizacion {
+    background: #202020;
+    border: 1px solid #333;
+    border-radius: 18px;
+    padding: 25px 22px;
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.25);
+    position: sticky;
+    top: 20px;
+}
+
+.actualizacion-titulo {
+    font-size: 22px;
+    font-weight: bold;
+    margin-bottom: 18px;
+}
+
+.actualizacion-contenido {
+    color: #bdbdbd;
+    font-size: 15px;
+    line-height: 1.7;
+}
+
+.actualizacion-contenido strong {
+    color: white;
+}
+
+
 /* =====================================================
    OH MACHIN - IMAGEN
 ===================================================== */
@@ -128,6 +172,7 @@ header p {
 .genero-imagen p {
     margin: 0;
 }
+
 
 /* =====================================================
    CONTENIDO
@@ -160,6 +205,7 @@ header p {
     gap: 8px;
 }
 
+
 /* =====================================================
    GRUPOS DE ARTISTAS
 ===================================================== */
@@ -183,6 +229,7 @@ header p {
     gap: 8px;
     padding-left: 12px;
 }
+
 
 /* =====================================================
    CANCIONES
@@ -209,12 +256,6 @@ header p {
     font-weight: bold;
 }
 
-.artista {
-    color: #999;
-    font-size: 14px;
-    margin-top: 5px;
-}
-
 .genero-tag {
     display: inline-block;
     margin-top: 8px;
@@ -230,6 +271,7 @@ header p {
     color: #888;
     padding: 40px;
 }
+
 
 /* =====================================================
    REPRODUCTOR LATERAL
@@ -291,9 +333,22 @@ header p {
     text-align: center;
 }
 
+
 /* =====================================================
    MOVIL
 ===================================================== */
+
+@media(max-width:1100px) {
+
+    .menu-principal {
+        grid-template-columns: 1fr;
+    }
+
+    .actualizacion {
+        position: static;
+    }
+}
+
 
 @media(max-width:900px) {
 
@@ -321,7 +376,13 @@ header p {
     #infoCancion {
         margin-bottom: 8px;
     }
+
+    .menu-principal {
+        padding: 15px;
+    }
+
 }
+
 
 @media(max-width:600px) {
 
@@ -331,6 +392,7 @@ header p {
 
     .generos {
         grid-template-columns: 1fr 1fr;
+        gap: 12px;
     }
 
     .genero {
@@ -344,6 +406,11 @@ header p {
     .lista-artista {
         padding-left: 5px;
     }
+
+    .actualizacion {
+        padding: 20px;
+    }
+
 }
 
 </style>
@@ -378,105 +445,138 @@ header p {
 
 <section id="inicio" class="vista activa">
 
-    <div class="generos">
+    <div class="menu-principal">
 
-        <!-- POP -->
-
-        <div
-            class="genero"
-            onclick="abrirGenero('POP')"
-        >
-
-            <div class="icono">🎤</div>
-
-            <h2>POP</h2>
-
-            <p>Música pop</p>
-
-        </div>
+        <div class="generos">
 
 
-        <!-- ROCK -->
+            <!-- POP -->
 
-        <div
-            class="genero"
-            onclick="abrirGenero('ROCK')"
-        >
-
-            <div class="icono">🎸</div>
-
-            <h2>ROCK</h2>
-
-            <p>Rock</p>
-
-        </div>
-
-
-        <!-- CUMBIA -->
-
-        <div
-            class="genero"
-            onclick="abrirGenero('CUMBIA')"
-        >
-
-            <div class="icono">💃</div>
-
-            <h2>CUMBIA</h2>
-
-            <p>Cumbia</p>
-
-        </div>
-
-
-        <!-- REGGAETON -->
-
-        <div
-            class="genero"
-            onclick="abrirGenero('REGGAETON')"
-        >
-
-            <div class="icono">🔥</div>
-
-            <h2>REGGAETON</h2>
-
-            <p>Reggaetón</p>
-
-        </div>
-
-
-        <!-- SALSA -->
-
-        <div
-            class="genero"
-            onclick="abrirGenero('SALSA')"
-        >
-
-            <div class="icono">🕺</div>
-
-            <h2>SALSA</h2>
-
-            <p>Salsa</p>
-
-        </div>
-
-
-        <!-- OH MACHIN -->
-
-        <div
-            class="genero genero-imagen"
-            onclick="abrirGenero('OH MACHIN')"
-        >
-
-            <img
-                src="oh-machin.jfif"
-                alt="OH MACHIN"
+            <div
+                class="genero"
+                onclick="abrirGenero('POP')"
             >
 
-            <h2>OH MACHIN</h2>
+                <div class="icono">🎤</div>
 
-            <p>OH MACHIN</p>
+                <h2>POP</h2>
+
+                <p>Música pop</p>
+
+            </div>
+
+
+            <!-- ROCK -->
+
+            <div
+                class="genero"
+                onclick="abrirGenero('ROCK')"
+            >
+
+                <div class="icono">🎸</div>
+
+                <h2>ROCK</h2>
+
+                <p>Rock</p>
+
+            </div>
+
+
+            <!-- CUMBIA -->
+
+            <div
+                class="genero"
+                onclick="abrirGenero('CUMBIA')"
+            >
+
+                <div class="icono">💃</div>
+
+                <h2>CUMBIA</h2>
+
+                <p>Cumbia</p>
+
+            </div>
+
+
+            <!-- REGGAETON -->
+
+            <div
+                class="genero"
+                onclick="abrirGenero('REGGAETON')"
+            >
+
+                <div class="icono">🔥</div>
+
+                <h2>REGGAETON</h2>
+
+                <p>Reggaetón</p>
+
+            </div>
+
+
+            <!-- SALSA -->
+
+            <div
+                class="genero"
+                onclick="abrirGenero('SALSA')"
+            >
+
+                <div class="icono">🕺</div>
+
+                <h2>SALSA</h2>
+
+                <p>Salsa</p>
+
+            </div>
+
+
+            <!-- OH MACHIN -->
+
+            <div
+                class="genero genero-imagen"
+                onclick="abrirGenero('OH MACHIN')"
+            >
+
+                <img
+                    src="oh-machin.jfif"
+                    alt="OH MACHIN"
+                >
+
+                <h2>OH MACHIN</h2>
+
+                <p>OH MACHIN</p>
+
+            </div>
 
         </div>
+
+
+        <!-- =================================================
+             ACTUALIZACION
+        ================================================== -->
+
+        <aside class="actualizacion">
+
+            <div class="actualizacion-titulo">
+
+                🔔 ACTUALIZACIÓN
+
+            </div>
+
+            <div class="actualizacion-contenido">
+
+                Se agregó la sección de
+                <strong>SALSA</strong>.
+
+                <br><br>
+
+                Se agregaron canciones en
+                <strong>REGGAETON</strong> y
+                <strong>ROCK</strong>.
+
+            </div>
+
+        </aside>
 
     </div>
 
@@ -856,8 +956,6 @@ function formatearTexto(texto) {
 
 /* =====================================================
    NORMALIZAR ARTISTA
-   UNE DIFERENTES FORMAS DE ESCRIBIR
-   AL MISMO ARTISTA
 ===================================================== */
 
 function normalizarArtista(texto) {
@@ -875,8 +973,7 @@ function normalizarArtista(texto) {
 
         .replace(
             /[^a-z0-9]/g,
-            ""
-        );
+            "");
 
 }
 
@@ -891,8 +988,6 @@ function obtenerArtistaCanonico(artista) {
         normalizarArtista(artista);
 
 
-    /* AC/DC */
-
     if (
         clave === "acdc"
     ) {
@@ -900,20 +995,14 @@ function obtenerArtistaCanonico(artista) {
     }
 
 
-    /* GUNS N' ROSES */
-
     if (
         clave === "gunsnroses"
         ||
         clave === "gunsnrose"
-        ||
-        clave === "gunsnroses"
     ) {
         return "Guns N' Roses";
     }
 
-
-    /* METALLICA */
 
     if (
         clave === "metallica"
@@ -924,8 +1013,6 @@ function obtenerArtistaCanonico(artista) {
     }
 
 
-    /* QUEEN */
-
     if (
         clave === "queen"
     ) {
@@ -933,16 +1020,12 @@ function obtenerArtistaCanonico(artista) {
     }
 
 
-    /* KISS */
-
     if (
         clave === "kiss"
     ) {
         return "Kiss";
     }
 
-
-    /* DADDY YANKEE */
 
     if (
         clave === "daddyyankee"
@@ -953,20 +1036,14 @@ function obtenerArtistaCanonico(artista) {
     }
 
 
-    /* WISIN & YANDEL */
-
     if (
         clave === "wisinyandel"
         ||
         clave === "wisinyyandel"
-        ||
-        clave === "wisinyandel"
     ) {
         return "Wisin & Yandel";
     }
 
-
-    /* DON OMAR */
 
     if (
         clave === "donomar"
@@ -975,16 +1052,12 @@ function obtenerArtistaCanonico(artista) {
     }
 
 
-    /* Tego Calderon */
-
     if (
         clave === "tegocalderon"
     ) {
         return "Tego Calderón";
     }
 
-
-    /* Zion & Lennox */
 
     if (
         clave === "zionlennox"
@@ -995,16 +1068,12 @@ function obtenerArtistaCanonico(artista) {
     }
 
 
-    /* Plan B */
-
     if (
         clave === "planb"
     ) {
         return "Plan B";
     }
 
-
-    /* Hector El Father */
 
     if (
         clave === "hectorelfather"
@@ -1013,27 +1082,12 @@ function obtenerArtistaCanonico(artista) {
     }
 
 
-    /* Hector & Tito */
-
     if (
         clave === "hectortito"
     ) {
         return "Héctor & Tito";
     }
 
-
-    /* Daddy Yankee y variantes */
-
-    if (
-        clave === "daddyyankee"
-        ||
-        clave === "dadyyankee"
-    ) {
-        return "Daddy Yankee";
-    }
-
-
-    /* Nicky Jam */
 
     if (
         clave === "nickyjam"
@@ -1042,16 +1096,12 @@ function obtenerArtistaCanonico(artista) {
     }
 
 
-    /* Ozuna */
-
     if (
         clave === "ozuna"
     ) {
         return "Ozuna";
     }
 
-
-    /* Anuel */
 
     if (
         clave === "anuel"
@@ -1060,16 +1110,12 @@ function obtenerArtistaCanonico(artista) {
     }
 
 
-    /* Bad Bunny */
-
     if (
         clave === "badbunny"
     ) {
         return "Bad Bunny";
     }
 
-
-    /* Dalex */
 
     if (
         clave === "dalex"
@@ -1078,16 +1124,12 @@ function obtenerArtistaCanonico(artista) {
     }
 
 
-    /* Faraon */
-
     if (
         clave === "faraonloveshady"
     ) {
         return "Faraón Love Shady";
     }
 
-
-    /* Michael Jackson */
 
     if (
         clave === "michaeljackson"
@@ -1096,16 +1138,12 @@ function obtenerArtistaCanonico(artista) {
     }
 
 
-    /* George Michael */
-
     if (
         clave === "georgemichael"
     ) {
         return "George Michael";
     }
 
-
-    /* Grupo 5 */
 
     if (
         clave === "grupo5"
@@ -1114,8 +1152,6 @@ function obtenerArtistaCanonico(artista) {
     }
 
 
-    /* Chacalón */
-
     if (
         clave === "chacalon"
     ) {
@@ -1123,16 +1159,12 @@ function obtenerArtistaCanonico(artista) {
     }
 
 
-    /* Corazón Serrano */
-
     if (
         clave === "corazonserrano"
     ) {
         return "Corazón Serrano";
     }
 
-
-    /* Wilson Manyoma */
 
     if (
         clave === "wilsonmanyoma"
@@ -1145,8 +1177,6 @@ function obtenerArtistaCanonico(artista) {
     }
 
 
-    /* Willie Colón */
-
     if (
         clave === "williecolon"
     ) {
@@ -1154,18 +1184,12 @@ function obtenerArtistaCanonico(artista) {
     }
 
 
-    /* Héctor Lavoe */
-
     if (
-        clave === "hectorlavoe"
-        ||
         clave === "hectorlavoe"
     ) {
         return "Héctor Lavoe";
     }
 
-
-    /* Artista desconocido */
 
     return artista.trim();
 
@@ -1182,9 +1206,11 @@ function abrirGenero(genero) {
         .getElementById("inicio")
         .classList.remove("activa");
 
+
     document
         .getElementById("busqueda")
         .classList.remove("activa");
+
 
     document
         .getElementById("biblioteca")
