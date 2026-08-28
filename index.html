@@ -160,6 +160,34 @@ header p {
     gap: 8px;
 }
 
+/* =====================================================
+   GRUPOS DE ARTISTAS
+===================================================== */
+
+.grupo-artista {
+    margin-bottom: 25px;
+}
+
+.nombre-artista-grupo {
+    font-size: 20px;
+    font-weight: bold;
+    padding: 12px 5px 10px;
+    color: white;
+    border-bottom: 1px solid #333;
+    margin-bottom: 8px;
+}
+
+.lista-artista {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    padding-left: 12px;
+}
+
+/* =====================================================
+   CANCIONES
+===================================================== */
+
 .cancion {
     background: #1f1f1f;
     padding: 15px 18px;
@@ -307,6 +335,14 @@ header p {
 
     .genero {
         padding: 25px 10px;
+    }
+
+    .nombre-artista-grupo {
+        font-size: 18px;
+    }
+
+    .lista-artista {
+        padding-left: 5px;
     }
 }
 
@@ -736,7 +772,7 @@ let cancionActual = null;
 
 
 /* =====================================================
-   OBTENER GENERO DESDE EL TAG
+   OBTENER GENERO
 ===================================================== */
 
 function obtenerGenero(archivo) {
@@ -762,7 +798,7 @@ function obtenerGenero(archivo) {
 function obtenerDatos(archivo) {
 
     let limpio =
-        archivo.replace(".mp3", "");
+        archivo.replace(/\.mp3$/i, "");
 
     const genero =
         obtenerGenero(archivo);
@@ -819,6 +855,324 @@ function formatearTexto(texto) {
 
 
 /* =====================================================
+   NORMALIZAR ARTISTA
+   UNE DIFERENTES FORMAS DE ESCRIBIR
+   AL MISMO ARTISTA
+===================================================== */
+
+function normalizarArtista(texto) {
+
+    return texto
+
+        .toLowerCase()
+
+        .normalize("NFD")
+
+        .replace(
+            /[\u0300-\u036f]/g,
+            ""
+        )
+
+        .replace(
+            /[^a-z0-9]/g,
+            ""
+        );
+
+}
+
+
+/* =====================================================
+   OBTENER ARTISTA CANONICO
+===================================================== */
+
+function obtenerArtistaCanonico(artista) {
+
+    const clave =
+        normalizarArtista(artista);
+
+
+    /* AC/DC */
+
+    if (
+        clave === "acdc"
+    ) {
+        return "AC/DC";
+    }
+
+
+    /* GUNS N' ROSES */
+
+    if (
+        clave === "gunsnroses"
+        ||
+        clave === "gunsnrose"
+        ||
+        clave === "gunsnroses"
+    ) {
+        return "Guns N' Roses";
+    }
+
+
+    /* METALLICA */
+
+    if (
+        clave === "metallica"
+        ||
+        clave === "metalica"
+    ) {
+        return "Metallica";
+    }
+
+
+    /* QUEEN */
+
+    if (
+        clave === "queen"
+    ) {
+        return "Queen";
+    }
+
+
+    /* KISS */
+
+    if (
+        clave === "kiss"
+    ) {
+        return "Kiss";
+    }
+
+
+    /* DADDY YANKEE */
+
+    if (
+        clave === "daddyyankee"
+        ||
+        clave === "dadyyankee"
+    ) {
+        return "Daddy Yankee";
+    }
+
+
+    /* WISIN & YANDEL */
+
+    if (
+        clave === "wisinyandel"
+        ||
+        clave === "wisinyyandel"
+        ||
+        clave === "wisinyandel"
+    ) {
+        return "Wisin & Yandel";
+    }
+
+
+    /* DON OMAR */
+
+    if (
+        clave === "donomar"
+    ) {
+        return "Don Omar";
+    }
+
+
+    /* Tego Calderon */
+
+    if (
+        clave === "tegocalderon"
+    ) {
+        return "Tego Calderón";
+    }
+
+
+    /* Zion & Lennox */
+
+    if (
+        clave === "zionlennox"
+        ||
+        clave === "zionylennox"
+    ) {
+        return "Zion & Lennox";
+    }
+
+
+    /* Plan B */
+
+    if (
+        clave === "planb"
+    ) {
+        return "Plan B";
+    }
+
+
+    /* Hector El Father */
+
+    if (
+        clave === "hectorelfather"
+    ) {
+        return "Héctor El Father";
+    }
+
+
+    /* Hector & Tito */
+
+    if (
+        clave === "hectortito"
+    ) {
+        return "Héctor & Tito";
+    }
+
+
+    /* Daddy Yankee y variantes */
+
+    if (
+        clave === "daddyyankee"
+        ||
+        clave === "dadyyankee"
+    ) {
+        return "Daddy Yankee";
+    }
+
+
+    /* Nicky Jam */
+
+    if (
+        clave === "nickyjam"
+    ) {
+        return "Nicky Jam";
+    }
+
+
+    /* Ozuna */
+
+    if (
+        clave === "ozuna"
+    ) {
+        return "Ozuna";
+    }
+
+
+    /* Anuel */
+
+    if (
+        clave === "anuel"
+    ) {
+        return "ANUEL";
+    }
+
+
+    /* Bad Bunny */
+
+    if (
+        clave === "badbunny"
+    ) {
+        return "Bad Bunny";
+    }
+
+
+    /* Dalex */
+
+    if (
+        clave === "dalex"
+    ) {
+        return "Dalex";
+    }
+
+
+    /* Faraon */
+
+    if (
+        clave === "faraonloveshady"
+    ) {
+        return "Faraón Love Shady";
+    }
+
+
+    /* Michael Jackson */
+
+    if (
+        clave === "michaeljackson"
+    ) {
+        return "Michael Jackson";
+    }
+
+
+    /* George Michael */
+
+    if (
+        clave === "georgemichael"
+    ) {
+        return "George Michael";
+    }
+
+
+    /* Grupo 5 */
+
+    if (
+        clave === "grupo5"
+    ) {
+        return "Grupo 5";
+    }
+
+
+    /* Chacalón */
+
+    if (
+        clave === "chacalon"
+    ) {
+        return "Chacalón";
+    }
+
+
+    /* Corazón Serrano */
+
+    if (
+        clave === "corazonserrano"
+    ) {
+        return "Corazón Serrano";
+    }
+
+
+    /* Wilson Manyoma */
+
+    if (
+        clave === "wilsonmanyoma"
+        ||
+        clave === "wilsonsaoko"
+        ||
+        clave === "saoko"
+    ) {
+        return "Wilson Manyoma";
+    }
+
+
+    /* Willie Colón */
+
+    if (
+        clave === "williecolon"
+    ) {
+        return "Willie Colón";
+    }
+
+
+    /* Héctor Lavoe */
+
+    if (
+        clave === "hectorlavoe"
+        ||
+        clave === "hectorlavoe"
+    ) {
+        return "Héctor Lavoe";
+    }
+
+
+    /* Artista desconocido */
+
+    return artista.trim();
+
+}
+
+
+/* =====================================================
    ABRIR GENERO
 ===================================================== */
 
@@ -836,6 +1190,7 @@ function abrirGenero(genero) {
         .getElementById("biblioteca")
         .classList.add("activa");
 
+
     document
         .getElementById("tituloGenero")
         .textContent =
@@ -843,11 +1198,13 @@ function abrirGenero(genero) {
             + " "
             + genero;
 
+
     const resultados =
         canciones.filter(
             cancion =>
             obtenerGenero(cancion) === genero
         );
+
 
     mostrarCanciones(
         resultados,
@@ -887,7 +1244,81 @@ function obtenerIcono(genero) {
 
 
 /* =====================================================
-   MOSTRAR CANCIONES
+   CREAR CANCION
+===================================================== */
+
+function crearElementoCancion(archivo) {
+
+    const datos =
+        obtenerDatos(archivo);
+
+
+    const div =
+        document.createElement("div");
+
+
+    div.className =
+        "cancion";
+
+
+    if (
+        cancionActual === archivo
+    ) {
+
+        div.classList.add(
+            "activa"
+        );
+
+    }
+
+
+    div.innerHTML = `
+
+        <div class="titulo">
+
+            🎵 ${datos.titulo}
+
+        </div>
+
+        <span class="genero-tag">
+
+            ${datos.genero}
+
+        </span>
+
+    `;
+
+
+    div.onclick = function() {
+
+        reproducir(archivo);
+
+
+        document
+            .querySelectorAll(
+                ".cancion"
+            )
+            .forEach(x =>
+                x.classList.remove(
+                    "activa"
+                )
+            );
+
+
+        div.classList.add(
+            "activa"
+        );
+
+    };
+
+
+    return div;
+
+}
+
+
+/* =====================================================
+   MOSTRAR CANCIONES AGRUPADAS POR ARTISTA
 ===================================================== */
 
 function mostrarCanciones(
@@ -896,11 +1327,17 @@ function mostrarCanciones(
 ) {
 
     const elemento =
-        document.getElementById(contenedor);
+        document.getElementById(
+            contenedor
+        );
+
 
     elemento.innerHTML = "";
 
-    if (lista.length === 0) {
+
+    if (
+        lista.length === 0
+    ) {
 
         elemento.innerHTML =
             '<div class="vacio">' +
@@ -911,72 +1348,149 @@ function mostrarCanciones(
 
     }
 
-    lista.forEach(archivo => {
 
-        const datos =
-            obtenerDatos(archivo);
+    const grupos = {};
 
-        const div =
-            document.createElement("div");
 
-        div.className =
-            "cancion";
+    lista.forEach(
+        archivo => {
 
-        if (
-            cancionActual === archivo
-        ) {
+            const datos =
+                obtenerDatos(
+                    archivo
+                );
 
-            div.classList.add(
-                "activa"
+
+            const artista =
+                obtenerArtistaCanonico(
+                    datos.artista
+                );
+
+
+            if (
+                !grupos[artista]
+            ) {
+
+                grupos[artista] = [];
+
+            }
+
+
+            grupos[artista].push(
+                archivo
             );
 
         }
+    );
 
-        div.innerHTML = `
 
-            <div class="titulo">
-
-                🎵 ${datos.titulo}
-
-            </div>
-
-            <div class="artista">
-
-                ${datos.artista}
-
-            </div>
-
-            <span class="genero-tag">
-
-                ${datos.genero}
-
-            </span>
-
-        `;
-
-        div.onclick = function() {
-
-            reproducir(archivo);
-
-            document
-                .querySelectorAll(
-                    ".cancion"
+    const artistasOrdenados =
+        Object.keys(grupos).sort(
+            (a, b) =>
+                a.localeCompare(
+                    b,
+                    "es",
+                    {
+                        sensitivity:
+                            "base"
+                    }
                 )
-                .forEach(x =>
-                    x.classList.remove(
-                        "activa"
-                    )
+        );
+
+
+    artistasOrdenados.forEach(
+        artista => {
+
+            const grupo =
+                document.createElement(
+                    "div"
                 );
 
-            div.classList.add(
-                "activa"
+
+            grupo.className =
+                "grupo-artista";
+
+
+            const nombre =
+                document.createElement(
+                    "div"
+                );
+
+
+            nombre.className =
+                "nombre-artista-grupo";
+
+
+            nombre.textContent =
+                artista;
+
+
+            grupo.appendChild(
+                nombre
             );
 
-        };
 
-        elemento.appendChild(div);
+            const listaArtista =
+                document.createElement(
+                    "div"
+                );
 
-    });
+
+            listaArtista.className =
+                "lista-artista";
+
+
+            grupos[artista].sort(
+                (a, b) => {
+
+                    const tituloA =
+                        obtenerDatos(
+                            a
+                        ).titulo;
+
+                    const tituloB =
+                        obtenerDatos(
+                            b
+                        ).titulo;
+
+
+                    return tituloA.localeCompare(
+                        tituloB,
+                        "es",
+                        {
+                            sensitivity:
+                                "base"
+                        }
+                    );
+
+                }
+            );
+
+
+            grupos[artista].forEach(
+                archivo => {
+
+                    listaArtista.appendChild(
+                        crearElementoCancion(
+                            archivo
+                        )
+                    );
+
+                }
+            );
+
+
+            grupo.appendChild(
+                listaArtista
+            );
+
+
+            elemento.appendChild(
+                grupo
+            );
+
+        }
+    );
 
 }
 
@@ -990,11 +1504,14 @@ function reproducir(archivo) {
     const audio =
         document.getElementById("audio");
 
+
     if (
         cancionActual === archivo
     ) {
 
-        if (audio.paused) {
+        if (
+            audio.paused
+        ) {
 
             audio.play();
 
@@ -1004,13 +1521,19 @@ function reproducir(archivo) {
 
     }
 
+
     cancionActual =
         archivo;
 
+
     audio.src =
-        encodeURI(archivo);
+        encodeURI(
+            archivo
+        );
+
 
     audio.play();
+
 
     actualizarInfo(
         archivo
@@ -1028,7 +1551,10 @@ function actualizarInfo(
 ) {
 
     const datos =
-        obtenerDatos(archivo);
+        obtenerDatos(
+            archivo
+        );
+
 
     document
         .getElementById(
@@ -1050,7 +1576,9 @@ function actualizarInfo(
 
             <span class="artistaActual">
 
-                ${datos.artista}
+                ${obtenerArtistaCanonico(
+                    datos.artista
+                )}
 
             </span>
 
@@ -1073,6 +1601,7 @@ function volverInicio() {
             "activa"
         );
 
+
     document
         .getElementById(
             "busqueda"
@@ -1080,6 +1609,7 @@ function volverInicio() {
         .classList.remove(
             "activa"
         );
+
 
     document
         .getElementById(
@@ -1123,7 +1653,10 @@ buscador.addEventListener(
                     ""
                 );
 
-        if (texto === "") {
+
+        if (
+            texto === ""
+        ) {
 
             document
                 .getElementById(
@@ -1133,6 +1666,7 @@ buscador.addEventListener(
                     "activa"
                 );
 
+
             document
                 .getElementById(
                     "biblioteca"
@@ -1140,6 +1674,7 @@ buscador.addEventListener(
                 .classList.remove(
                     "activa"
                 );
+
 
             document
                 .getElementById(
@@ -1149,9 +1684,11 @@ buscador.addEventListener(
                     "activa"
                 );
 
+
             return;
 
         }
+
 
         document
             .getElementById(
@@ -1161,6 +1698,7 @@ buscador.addEventListener(
                 "activa"
             );
 
+
         document
             .getElementById(
                 "biblioteca"
@@ -1168,6 +1706,7 @@ buscador.addEventListener(
             .classList.remove(
                 "activa"
             );
+
 
         document
             .getElementById(
@@ -1177,6 +1716,7 @@ buscador.addEventListener(
                 "activa"
             );
 
+
         const resultados =
             canciones.filter(
                 archivo => {
@@ -1185,6 +1725,7 @@ buscador.addEventListener(
                         obtenerDatos(
                             archivo
                         );
+
 
                     const titulo =
                         datos.titulo
@@ -1203,8 +1744,15 @@ buscador.addEventListener(
                                 ""
                             );
 
+
+                    const artistaOriginal =
+                        datos.artista;
+
+
                     const artista =
-                        datos.artista
+                        obtenerArtistaCanonico(
+                            artistaOriginal
+                        )
 
                             .toLowerCase()
 
@@ -1220,6 +1768,13 @@ buscador.addEventListener(
                                 ""
                             );
 
+
+                    const claveArtista =
+                        normalizarArtista(
+                            artistaOriginal
+                        );
+
+
                     return (
 
                         titulo.includes(
@@ -1232,10 +1787,17 @@ buscador.addEventListener(
                             texto
                         )
 
+                        ||
+
+                        claveArtista.includes(
+                            texto
+                        )
+
                     );
 
                 }
             );
+
 
         mostrarCanciones(
             resultados,
