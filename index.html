@@ -1,4 +1,5 @@
 <!DOCTYPE html>
+
 <html lang="es">
 
 <head>
@@ -78,7 +79,7 @@ header p {
     margin: 30px auto;
     padding: 20px;
     display: grid;
-    grid-template-columns: minmax(0, 1fr) 300px;
+    grid-template-columns: minmax(0, 1fr) 250px;
     gap: 25px;
     align-items: start;
 }
@@ -117,33 +118,40 @@ header p {
 
 
 /* =====================================================
-   ACTUALIZACION
+   ACTUALIZACION MINIMALISTA
 ===================================================== */
 
 .actualizacion {
-    background: #202020;
-    border: 1px solid #333;
-    border-radius: 18px;
-    padding: 25px 22px;
-    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.25);
+    background: #1b1b1b;
+    border: 1px solid #2d2d2d;
+    border-radius: 14px;
+    padding: 18px;
     position: sticky;
     top: 20px;
 }
 
 .actualizacion-titulo {
-    font-size: 22px;
+    font-size: 15px;
     font-weight: bold;
-    margin-bottom: 18px;
+    margin-bottom: 10px;
+    letter-spacing: 0.3px;
 }
 
 .actualizacion-contenido {
-    color: #bdbdbd;
-    font-size: 15px;
-    line-height: 1.7;
+    color: #999;
+    font-size: 13px;
+    line-height: 1.5;
 }
 
 .actualizacion-contenido strong {
-    color: white;
+    color: #ddd;
+}
+
+.fecha {
+    display: block;
+    margin-top: 10px;
+    color: #666;
+    font-size: 11px;
 }
 
 
@@ -381,7 +389,7 @@ header p {
     }
 
     .actualizacion {
-        padding: 20px;
+        padding: 16px;
     }
 
 }
@@ -394,23 +402,24 @@ header p {
 
 <header>
 
-    <h1>🎵 HYmusic Peru2026</h1>
+```
+<h1>🎵 HYmusic Peru2026</h1>
 
-    <p>Tu biblioteca de música</p>
+<p>Tu biblioteca de música</p>
 
-    <div class="search">
+<div class="search">
 
-        <input
-            type="text"
-            id="buscador"
-            placeholder="🔎 Buscar canción o artista..."
-            autocomplete="off"
-        >
+    <input
+        type="text"
+        id="buscador"
+        placeholder="🔎 Buscar canción o artista..."
+        autocomplete="off"
+    >
 
-    </div>
+</div>
+```
 
 </header>
-
 
 <!-- =====================================================
      MENU PRINCIPAL
@@ -418,124 +427,125 @@ header p {
 
 <section id="inicio" class="vista activa">
 
-    <div class="menu-principal">
+```
+<div class="menu-principal">
 
-        <div class="generos">
+    <div class="generos">
 
+        <!-- POP -->
 
-            <!-- POP -->
+        <div
+            class="genero"
+            onclick="abrirGenero('POP')"
+        >
 
-            <div
-                class="genero"
-                onclick="abrirGenero('POP')"
-            >
+            <div class="icono">🎤</div>
 
-                <div class="icono">🎤</div>
+            <h2>POP</h2>
 
-                <h2>POP</h2>
-
-                <p>Música pop</p>
-
-            </div>
-
-
-            <!-- ROCK -->
-
-            <div
-                class="genero"
-                onclick="abrirGenero('ROCK')"
-            >
-
-                <div class="icono">🎸</div>
-
-                <h2>ROCK</h2>
-
-                <p>Rock</p>
-
-            </div>
-
-
-            <!-- CUMBIA -->
-
-            <div
-                class="genero"
-                onclick="abrirGenero('CUMBIA')"
-            >
-
-                <div class="icono">💃</div>
-
-                <h2>CUMBIA</h2>
-
-                <p>Cumbia</p>
-
-            </div>
-
-
-            <!-- REGGAETON -->
-
-            <div
-                class="genero"
-                onclick="abrirGenero('REGGAETON')"
-            >
-
-                <div class="icono">🔥</div>
-
-                <h2>REGGAETON</h2>
-
-                <p>Reggaetón</p>
-
-            </div>
-
-
-            <!-- SALSA -->
-
-            <div
-                class="genero"
-                onclick="abrirGenero('SALSA')"
-            >
-
-                <div class="icono">🕺</div>
-
-                <h2>SALSA</h2>
-
-                <p>Salsa</p>
-
-            </div>
+            <p>Música pop</p>
 
         </div>
 
 
-        <!-- =================================================
-             ACTUALIZACION
-        ================================================== -->
+        <!-- ROCK -->
 
-        <aside class="actualizacion">
+        <div
+            class="genero"
+            onclick="abrirGenero('ROCK')"
+        >
 
-            <div class="actualizacion-titulo">
+            <div class="icono">🎸</div>
 
-                🔔 ACTUALIZACIÓN
+            <h2>ROCK</h2>
 
-            </div>
+            <p>Rock</p>
 
-            <div class="actualizacion-contenido">
+        </div>
 
-                Se agregó la sección de
-                <strong>SALSA</strong>.
 
-                <br><br>
+        <!-- CUMBIA -->
 
-                Se agregaron canciones en
-                <strong>REGGAETON</strong> y
-                <strong>ROCK</strong>.
+        <div
+            class="genero"
+            onclick="abrirGenero('CUMBIA')"
+        >
 
-            </div>
+            <div class="icono">💃</div>
 
-        </aside>
+            <h2>CUMBIA</h2>
+
+            <p>Cumbia</p>
+
+        </div>
+
+
+        <!-- REGGAETON -->
+
+        <div
+            class="genero"
+            onclick="abrirGenero('REGGAETON')"
+        >
+
+            <div class="icono">🔥</div>
+
+            <h2>REGGAETON</h2>
+
+            <p>Reggaetón</p>
+
+        </div>
+
+
+        <!-- SALSA -->
+
+        <div
+            class="genero"
+            onclick="abrirGenero('SALSA')"
+        >
+
+            <div class="icono">🕺</div>
+
+            <h2>SALSA</h2>
+
+            <p>Salsa</p>
+
+        </div>
 
     </div>
 
-</section>
 
+    <!-- =================================================
+         ACTUALIZACION
+    ================================================== -->
+
+    <aside class="actualizacion">
+
+        <div class="actualizacion-titulo">
+
+            🔔 ACTUALIZACIÓN
+
+        </div>
+
+        <div class="actualizacion-contenido">
+
+            Se agregaron canciones a
+            <strong>REGGAETON</strong> y
+            <strong>CUMBIA</strong>.
+
+            <span class="fecha">
+
+                29 de agosto de 2026
+
+            </span>
+
+        </div>
+
+    </aside>
+
+</div>
+```
+
+</section>
 
 <!-- =====================================================
      BIBLIOTECA
@@ -543,28 +553,29 @@ header p {
 
 <section id="biblioteca" class="vista">
 
-    <div class="contenido">
+```
+<div class="contenido">
 
-        <button
-            class="volver"
-            onclick="volverInicio()"
-        >
+    <button
+        class="volver"
+        onclick="volverInicio()"
+    >
 
-            ← Volver
+        ← Volver
 
-        </button>
+    </button>
 
-        <h2 id="tituloGenero"></h2>
+    <h2 id="tituloGenero"></h2>
 
-        <div
-            id="listaCanciones"
-            class="lista"
-        ></div>
+    <div
+        id="listaCanciones"
+        class="lista"
+    ></div>
 
-    </div>
+</div>
+```
 
 </section>
-
 
 <!-- =====================================================
      RESULTADOS DE BUSQUEDA
@@ -572,28 +583,29 @@ header p {
 
 <section id="busqueda" class="vista">
 
-    <div class="contenido">
+```
+<div class="contenido">
 
-        <button
-            class="volver"
-            onclick="volverInicio()"
-        >
+    <button
+        class="volver"
+        onclick="volverInicio()"
+    >
 
-            ← Volver
+        ← Volver
 
-        </button>
+    </button>
 
-        <h2>🔎 Resultados de búsqueda</h2>
+    <h2>🔎 Resultados de búsqueda</h2>
 
-        <div
-            id="listaBusqueda"
-            class="lista"
-        ></div>
+    <div
+        id="listaBusqueda"
+        class="lista"
+    ></div>
 
-    </div>
+</div>
+```
 
 </section>
-
 
 <!-- =====================================================
      REPRODUCTOR PERMANENTE
@@ -601,41 +613,42 @@ header p {
 
 <aside id="reproductor">
 
-    <div class="cover">
+```
+<div class="cover">
 
-        🎵
+    🎵
 
-    </div>
+</div>
 
-    <div id="infoCancion">
+<div id="infoCancion">
 
-        <span class="nombre">
+    <span class="nombre">
 
-            Ninguna canción seleccionada
+        Ninguna canción seleccionada
 
-        </span>
+    </span>
 
-        <span class="artistaActual">
+    <span class="artistaActual">
 
-            Selecciona una canción
+        Selecciona una canción
 
-        </span>
+    </span>
 
-    </div>
+</div>
 
-    <audio
-        id="audio"
-        controls
-    ></audio>
+<audio
+    id="audio"
+    controls
+></audio>
 
-    <div class="estado">
+<div class="estado">
 
-        HYmusic Peru2026
+    HYmusic Peru2026
 
-    </div>
+</div>
+```
 
 </aside>
-
 
 <script>
 
@@ -665,6 +678,45 @@ const canciones = [
     "QuieroOlvidarte-Grupo5(CUMBIA).mp3",
     "TeVas-Grupo5(CUMBIA).mp3",
     "VenMiAmor-CHACALON(Cumbia).mp3",
+
+    /* ======== NUEVAS CUMBIA — GRUPO NÉCTAR ======== */
+
+    "Cerveza , Ron y Néctar-Grupo Néctar(CUMBIA).mp3",
+    "El Primer Beso-Grupo Néctar(CUMBIA).mp3",
+    "Sueltame-Grupo Néctar(CUMBIA).mp3",
+    "Botellita de ron-Grupo Néctar(CUMBIA).mp3",
+    "Pecadora-Grupo Néctar(CUMBIA).mp3",
+    "Tu Vives Equivocada-Grupo Néctar(CUMBIA).mp3",
+    "El Baile De La Cumbia-Grupo Néctar(CUMBIA).mp3",
+    "OJITOS HECHICEROS-Grupo Néctar(CUMBIA).mp3",
+    "Muchachita-Grupo Néctar(CUMBIA).mp3",
+    "El arbolito-Grupo Néctar(CUMBIA).mp3",
+
+    /* ======== NUEVAS CUMBIA — ARMONÍA 10 ======== */
+
+    "El Chancho de Mi Vecina-Armonía 10(CUMBIA).mp3",
+    "Quise Morir-Armonía 10(CUMBIA).mp3",
+    "Alitas Quebradas-Armonía 10(CUMBIA).mp3",
+    "Tu Amor Es una Trampa-Armonía 10(CUMBIA).mp3",
+    "La Duda-Armonía 10(CUMBIA).mp3",
+    "DIOS MIO HAS QUE ME ENAMORE-Armonía 10(CUMBIA).mp3",
+    "Me Emborracho por Tu Amor-Armonía 10(CUMBIA).mp3",
+    "Juraré No Amarte Más-Armonía 10(CUMBIA).mp3",
+    "SIEMPRE PIERDO EN EL AMOR-Armonía 10(CUMBIA).mp3",
+    "El Cervecero-Armonía 10(CUMBIA).mp3",
+
+    /* ======== NUEVAS CUMBIA — AGUA MARINA ======== */
+
+    "Amor Amor-Agua Marina(CUMBIA).mp3",
+    "Lagrimas de Hombre-Agua Marina(CUMBIA).mp3",
+    "Tarde en tu vida-Agua Marina(CUMBIA).mp3",
+    "Esta Vez Me Enamoré-Agua Marina(CUMBIA).mp3",
+    "Canto Herido-Agua Marina(CUMBIA).mp3",
+    "Agua Marina Pensando en ti-Agua Marina(CUMBIA).mp3",
+    "Basta Ya Mi Amor-Agua Marina(CUMBIA).mp3",
+    "Así es el amor-Agua Marina(CUMBIA).mp3",
+    "Paloma ajena-Agua Marina(CUMBIA).mp3",
+    "Tú Amor Fue Una Mentira-Agua Marina(CUMBIA).mp3",
 
 
     /* ================= POP ================= */
@@ -790,6 +842,30 @@ const canciones = [
     "Tu Principe-Daddy Yankee(REGGAETON).mp3",
     "Rompe-Daddy Yankee(REGGAETON).mp3",
     "Lo que Pasó Pasó-DADY YANKEE(REGGAETON).mp3",
+
+    /* ======== NUEVAS REGGAETON — ANUEL ======== */
+
+    "Mas Rica Que Ayer-ANUEL(REGGAETON).mp3",
+    "BAD BOY-ANUEL(REGGAETON).mp3",
+    "Esa Cruz-ANUEL(REGGAETON).mp3",
+    "Las Mas Bonitas Son P#tas-ANUEL(REGGAETON).mp3",
+    "TE CANTO BAJITO-ANUEL(REGGAETON).mp3",
+    "AMANECE-ANUEL(REGGAETON).mp3",
+    "Yeezy-ANUEL(REGGAETON).mp3",
+    "Donde Hubo Fuego Cenizas Quedan-ANUEL(REGGAETON).mp3",
+
+    /* ======== NUEVAS REGGAETON — BAD BUNNY ======== */
+
+    "Tu No Vive Asi-Bad Bunny(REGGAETON).mp3",
+    "I Like It-Bad Bunny(REGGAETON).mp3",
+    "Diles-Bad Bunny(REGGAETON).mp3",
+    "AMORFODA-Bad Bunny(REGGAETON).mp3",
+    "MONACO-Bad Bunny(REGGAETON).mp3",
+    "EoO-Bad Bunny(REGGAETON).mp3",
+    "VOY A LLeVARTE PA PR-Bad Bunny(REGGAETON).mp3",
+    "NUEVAYoL-Bad Bunny(REGGAETON).mp3",
+    "DtMF-Bad Bunny(REGGAETON).mp3",
+    "BAD BOY-ANUEL(REGGAETON).mp3",
 
 
     /* ================= SALSA ================= */
@@ -938,9 +1014,7 @@ function obtenerArtistaCanonico(artista) {
         normalizarArtista(artista);
 
 
-    if (
-        clave === "acdc"
-    ) {
+    if (clave === "acdc") {
         return "AC/DC";
     }
 
@@ -963,16 +1037,12 @@ function obtenerArtistaCanonico(artista) {
     }
 
 
-    if (
-        clave === "queen"
-    ) {
+    if (clave === "queen") {
         return "Queen";
     }
 
 
-    if (
-        clave === "kiss"
-    ) {
+    if (clave === "kiss") {
         return "Kiss";
     }
 
@@ -995,16 +1065,12 @@ function obtenerArtistaCanonico(artista) {
     }
 
 
-    if (
-        clave === "donomar"
-    ) {
+    if (clave === "donomar") {
         return "Don Omar";
     }
 
 
-    if (
-        clave === "tegocalderon"
-    ) {
+    if (clave === "tegocalderon") {
         return "Tego Calderón";
     }
 
@@ -1018,101 +1084,88 @@ function obtenerArtistaCanonico(artista) {
     }
 
 
-    if (
-        clave === "planb"
-    ) {
+    if (clave === "planb") {
         return "Plan B";
     }
 
 
-    if (
-        clave === "hectorelfather"
-    ) {
+    if (clave === "hectorelfather") {
         return "Héctor El Father";
     }
 
 
-    if (
-        clave === "hectortito"
-    ) {
+    if (clave === "hectortito") {
         return "Héctor & Tito";
     }
 
 
-    if (
-        clave === "nickyjam"
-    ) {
+    if (clave === "nickyjam") {
         return "Nicky Jam";
     }
 
 
-    if (
-        clave === "ozuna"
-    ) {
+    if (clave === "ozuna") {
         return "Ozuna";
     }
 
 
-    if (
-        clave === "anuel"
-    ) {
+    if (clave === "anuel") {
         return "ANUEL";
     }
 
 
-    if (
-        clave === "badbunny"
-    ) {
+    if (clave === "badbunny") {
         return "Bad Bunny";
     }
 
 
-    if (
-        clave === "dalex"
-    ) {
+    if (clave === "dalex") {
         return "Dalex";
     }
 
 
-    if (
-        clave === "faraonloveshady"
-    ) {
+    if (clave === "faraonloveshady") {
         return "Faraón Love Shady";
     }
 
 
-    if (
-        clave === "michaeljackson"
-    ) {
+    if (clave === "michaeljackson") {
         return "Michael Jackson";
     }
 
 
-    if (
-        clave === "georgemichael"
-    ) {
+    if (clave === "georgemichael") {
         return "George Michael";
     }
 
 
-    if (
-        clave === "grupo5"
-    ) {
+    if (clave === "grupo5") {
         return "Grupo 5";
     }
 
 
-    if (
-        clave === "chacalon"
-    ) {
+    if (clave === "chacalon") {
         return "Chacalón";
     }
 
 
-    if (
-        clave === "corazonserrano"
-    ) {
+    if (clave === "corazonserrano") {
         return "Corazón Serrano";
+    }
+
+
+    if (clave === "gruponectar") {
+        return "Grupo Néctar";
+    }
+
+
+    if (clave === "armonia10") {
+        return "Armonía 10";
+    }
+
+
+    if (clave === "aguamarina") {
+        return "Agua Marina";
     }
 
 
@@ -1127,16 +1180,12 @@ function obtenerArtistaCanonico(artista) {
     }
 
 
-    if (
-        clave === "williecolon"
-    ) {
+    if (clave === "williecolon") {
         return "Willie Colón";
     }
 
 
-    if (
-        clave === "hectorlavoe"
-    ) {
+    if (clave === "hectorlavoe") {
         return "Héctor Lavoe";
     }
 
