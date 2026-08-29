@@ -1,4 +1,3 @@
-```html
 <!DOCTYPE html>
 <html lang="es">
 
@@ -145,32 +144,6 @@ header p {
 
 .actualizacion-contenido strong {
     color: white;
-}
-
-
-/* =====================================================
-   OH MACHIN - IMAGEN
-===================================================== */
-
-.genero-imagen {
-    padding: 0 0 20px 0;
-    overflow: hidden;
-}
-
-.genero-imagen img {
-    width: 100%;
-    height: 180px;
-    object-fit: cover;
-    display: block;
-    border-radius: 18px 18px 0 0;
-}
-
-.genero-imagen h2 {
-    margin: 15px 0 5px;
-}
-
-.genero-imagen p {
-    margin: 0;
 }
 
 
@@ -529,25 +502,6 @@ header p {
 
             </div>
 
-
-            <!-- OH MACHIN -->
-
-            <div
-                class="genero genero-imagen"
-                onclick="abrirGenero('OH MACHIN')"
-            >
-
-                <img
-                    src="oh-machin.jfif"
-                    alt="OH MACHIN"
-                >
-
-                <h2>OH MACHIN</h2>
-
-                <p>OH MACHIN</p>
-
-            </div>
-
         </div>
 
 
@@ -710,7 +664,7 @@ const canciones = [
     "QuienCura-Grupo5(CUMBIA).mp3",
     "QuieroOlvidarte-Grupo5(CUMBIA).mp3",
     "TeVas-Grupo5(CUMBIA).mp3",
-    "VenMiAmor-CHACALON(CUMBIA).mp3",
+    "VenMiAmor-CHACALON(Cumbia).mp3",
 
 
     /* ================= POP ================= */
@@ -778,6 +732,7 @@ const canciones = [
     "MeFuiDeVacaciones-BADBUNNY(REGGAETON).mp3",
     "MePortoBonito-BADBUNNY(REGGAETON).mp3",
     "MoscowMule-BADBUNNY(REGGAETON).mp3",
+    "No Me Conoce-Bad Bunny(REGGAETON).mp3",
     "NoQuiereEnamorarse-Ozuna(REGGAETON).mp3",
     "PiensasEnMi-NickyJam(REGGAETON).mp3",
     "SexyMovimiento-WisinyYandel(REGGAETON).mp3",
@@ -854,12 +809,7 @@ const canciones = [
     "Aguanile-Hector Lavoe(SALSA).mp3",
     "Mi Gente-Hector Lavoe(SALSA).mp3",
     "Periódico de Ayer-Hector Lavoe(SALSA).mp3",
-    "El Cantante-Hector Lavoe(SALSA).mp3",
-
-
-    /* ================= OH MACHIN ================= */
-
-    "xd-KingNasir(OH MACHIN).mp3"
+    "El Cantante-Hector Lavoe(SALSA).mp3"
 
 ];
 
@@ -1260,9 +1210,6 @@ function obtenerIcono(genero) {
 
     if (genero === "SALSA")
         return "🕺";
-
-    if (genero === "OH MACHIN")
-        return "🎵";
 
     return "🎵";
 
@@ -1838,4 +1785,3 @@ buscador.addEventListener(
 </body>
 
 </html>
-```
