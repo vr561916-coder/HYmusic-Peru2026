@@ -1,5 +1,5 @@
+```html
 <!DOCTYPE html>
-
 <html lang="es">
 
 <head>
@@ -114,6 +114,44 @@ header p {
 
 .genero p {
     color: #999;
+}
+
+
+/* =====================================================
+   GAMES
+===================================================== */
+
+.games {
+    background: #1c1c1c;
+    border: 1px solid #2d2d2d;
+    border-radius: 12px;
+    padding: 15px 12px;
+    text-align: center;
+    cursor: pointer;
+    transition: 0.2s;
+    grid-column: 1 / -1;
+    width: 180px;
+    justify-self: center;
+}
+
+.games:hover {
+    background: #303030;
+    transform: scale(1.03);
+}
+
+.games .icono {
+    font-size: 30px;
+}
+
+.games h2 {
+    font-size: 17px;
+    margin: 7px 0 3px;
+}
+
+.games p {
+    color: #777;
+    font-size: 12px;
+    margin: 0;
 }
 
 
@@ -392,6 +430,11 @@ header p {
         padding: 16px;
     }
 
+    .games {
+        width: 150px;
+        padding: 12px 10px;
+    }
+
 }
 
 </style>
@@ -402,7 +445,6 @@ header p {
 
 <header>
 
-```
 <h1>🎵 HYmusic Peru2026</h1>
 
 <p>Tu biblioteca de música</p>
@@ -417,9 +459,9 @@ header p {
     >
 
 </div>
-```
 
 </header>
+
 
 <!-- =====================================================
      MENU PRINCIPAL
@@ -427,7 +469,6 @@ header p {
 
 <section id="inicio" class="vista activa">
 
-```
 <div class="menu-principal">
 
     <div class="generos">
@@ -511,6 +552,22 @@ header p {
 
         </div>
 
+
+        <!-- GAMES -->
+
+        <div
+            class="games"
+            onclick="window.open('https://githubgames.gitlab.io/', '_blank')"
+        >
+
+            <div class="icono">🎮</div>
+
+            <h2>GAMES</h2>
+
+            <p>Juegos</p>
+
+        </div>
+
     </div>
 
 
@@ -543,9 +600,9 @@ header p {
     </aside>
 
 </div>
-```
 
 </section>
+
 
 <!-- =====================================================
      BIBLIOTECA
@@ -553,7 +610,6 @@ header p {
 
 <section id="biblioteca" class="vista">
 
-```
 <div class="contenido">
 
     <button
@@ -573,9 +629,9 @@ header p {
     ></div>
 
 </div>
-```
 
 </section>
+
 
 <!-- =====================================================
      RESULTADOS DE BUSQUEDA
@@ -583,7 +639,6 @@ header p {
 
 <section id="busqueda" class="vista">
 
-```
 <div class="contenido">
 
     <button
@@ -603,9 +658,9 @@ header p {
     ></div>
 
 </div>
-```
 
 </section>
+
 
 <!-- =====================================================
      REPRODUCTOR PERMANENTE
@@ -613,7 +668,6 @@ header p {
 
 <aside id="reproductor">
 
-```
 <div class="cover">
 
     🎵
@@ -646,9 +700,9 @@ header p {
     HYmusic Peru2026
 
 </div>
-```
 
 </aside>
+
 
 <script>
 
@@ -1834,3 +1888,4 @@ buscador.addEventListener(
 </body>
 
 </html>
+```
