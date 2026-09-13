@@ -522,6 +522,21 @@ header p {
 
 
 /* =====================================================
+   SECCION ESPECIAL ?
+===================================================== */
+
+.especial-marina {
+    font-size: 30px;
+    font-weight: bold;
+    padding: 18px 10px;
+}
+
+.especial-marina .icono {
+    font-size: 32px;
+}
+
+
+/* =====================================================
    MOVIL
 ===================================================== */
 
@@ -792,6 +807,19 @@ header p {
             <h2>GAMES</h2>
 
             <p>Juegos</p>
+
+        </div>
+
+
+        <!-- ? ESPECIAL -->
+
+        <div
+            class="games especial-marina"
+            onclick="abrirMarina()"
+            title="Abrir"
+        >
+
+            <div class="icono">?</div>
 
         </div>
 
@@ -2413,6 +2441,101 @@ document.addEventListener(
 
     }
 );
+
+
+/* =====================================================
+   SECCION ESPECIAL ?
+   Imagen + audio en una nueva pestaña
+===================================================== */
+
+function abrirMarina() {
+
+    const nuevaPestana = window.open("", "_blank");
+
+    if (!nuevaPestana) {
+        alert("El navegador bloqueó la nueva pestaña. Permite ventanas emergentes para HYmusic.");
+        return;
+    }
+
+    nuevaPestana.document.open();
+
+    nuevaPestana.document.write(`
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>HYmusic</title>
+
+<style>
+html, body {
+    margin: 0;
+    width: 100%;
+    height: 100%;
+    background: #000;
+    overflow: hidden;
+}
+
+body {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+    display: block;
+}
+</style>
+</head>
+
+<body>
+
+<img src="imagen-marina.jpg" alt="">
+
+<audio id="audioEspecial" autoplay preload="auto">
+    <source src="sonidos-marina.mp3" type="audio/mpeg">
+</audio>
+
+<script>
+
+const audioEspecial = document.getElementById("audioEspecial");
+
+let audioTerminado = false;
+
+function protegerPestana(event) {
+    if (!audioTerminado) {
+        event.preventDefault();
+        event.returnValue = "";
+    }
+}
+
+window.addEventListener("beforeunload", protegerPestana);
+
+audioEspecial.addEventListener("ended", function() {
+    audioTerminado = true;
+    window.removeEventListener("beforeunload", protegerPestana);
+});
+
+audioEspecial.addEventListener("error", function() {
+    audioTerminado = true;
+    window.removeEventListener("beforeunload", protegerPestana);
+});
+
+audioEspecial.play().catch(function() {
+    // El navegador puede bloquear el autoplay.
+});
+
+</script>
+
+</body>
+</html>
+    `);
+
+    nuevaPestana.document.close();
+}
 
 </script>
 
