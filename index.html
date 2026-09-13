@@ -537,6 +537,46 @@ header p {
 
 
 /* =====================================================
+   MODAL ESPECIAL ?
+===================================================== */
+
+.modal-marina {
+    position: fixed;
+    inset: 0;
+    background: #000;
+    display: none;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    z-index: 200000;
+    padding: 20px;
+}
+
+.modal-marina.abierto {
+    display: flex;
+}
+
+.modal-marina img {
+    max-width: 100%;
+    max-height: calc(100vh - 130px);
+    object-fit: contain;
+    border-radius: 8px;
+}
+
+.modal-marina audio {
+    width: min(600px, 95%);
+    margin-top: 18px;
+}
+
+.mensaje-marina {
+    color: #aaa;
+    font-size: 12px;
+    margin-top: 10px;
+    text-align: center;
+}
+
+
+/* =====================================================
    MOVIL
 ===================================================== */
 
@@ -845,6 +885,23 @@ header p {
 
 </section>
 
+
+<!-- =====================================================
+     MODAL ESPECIAL ?
+===================================================== -->
+<div id="modalMarina" class="modal-marina" aria-hidden="true">
+
+    <img src="imagen-marina.jpg" alt="">
+
+    <audio id="audioMarina" controls preload="auto">
+        <source src="sonidos-marina.mp3" type="audio/mpeg">
+    </audio>
+
+    <div class="mensaje-marina">
+        Esta sección se cerrará cuando termine el audio.
+    </div>
+
+</div>
 
 <!-- =====================================================
      POPUP ACTUALIZACION
@@ -2445,89 +2502,46 @@ document.addEventListener(
 
 /* =====================================================
    SECCION ESPECIAL ?
-   Imagen + audio en una nueva pestaña
+   Imagen + audio
 ===================================================== */
 
 function abrirMarina() {
 
-    const nuevaPestana = window.open("", "_blank");
+    const modal = document.getElementById("modalMarina");
+    const audio = document.getElementById("audioMarina");
 
-    if (!nuevaPestana) {
-        alert("El navegador bloqueó la nueva pestaña. Permite ventanas emergentes para HYmusic.");
-        return;
-    }
+    modal.classList.add("abierto");
+    modal.setAttribute("aria-hidden", "false");
 
-    nuevaPestana.document.open();
+    // Cada vez que se abre, el audio comienza desde el inicio.
+    audio.pause();
+    audio.currentTime = 0;
+    audio.load();
 
-    nuevaPestana.document.write(`
-<!DOCTYPE html>
-<html lang="es">
-<head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>HYmusic</title>
-
-<style>
-html, body {
-    margin: 0;
-    width: 100%;
-    height: 100%;
-    background: #000;
-    overflow: hidden;
+    audio.play().catch(function() {
+        // Si el navegador bloquea el autoplay, se puede pulsar ▶.
+    });
 }
 
-body {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-}
+const audioMarina = document.getElementById("audioMarina");
+const modalMarina = document.getElementById("modalMarina");
 
-img {
-    width: 100%;
-    height: 100%;
-    object-fit: contain;
-    display: block;
-}
-</style>
-</head>
+audioMarina.addEventListener("ended", function() {
 
-<body>
+    modalMarina.classList.remove("abierto");
+    modalMarina.setAttribute("aria-hidden", "true");
 
-<img src="imagen-marina.jpg" alt="">
+    audioMarina.pause();
+    audioMarina.currentTime = 0;
+});
 
-<audio id="audioEspecial" autoplay preload="auto">
-    <source src="sonidos-marina.mp3" type="audio/mpeg">
-</audio>
-
-<script>
-
-const audioEspecial = document.getElementById("audioEspecial");
-
-let audioTerminado = false;
-
-function protegerPestana(event) {
-    if (!audioTerminado) {
+// No se puede cerrar con Escape mientras la sección está abierta.
+document.addEventListener("keydown", function(event) {
+    if (event.key === "Escape" && modalMarina.classList.contains("abierto")) {
         event.preventDefault();
-        event.returnValue = "";
+        event.stopPropagation();
     }
-}
-
-window.addEventListener("beforeunload", protegerPestana);
-
-audioEspecial.addEventListener("ended", function() {
-    audioTerminado = true;
-    window.removeEventListener("beforeunload", protegerPestana);
 });
-
-audioEspecial.addEventListener("error", function() {
-    audioTerminado = true;
-    window.removeEventListener("beforeunload", protegerPestana);
-});
-
-audioEspecial.play().catch(function() {
-    // El navegador puede bloquear el autoplay.
-});
-
 </script>
 
 </body>
